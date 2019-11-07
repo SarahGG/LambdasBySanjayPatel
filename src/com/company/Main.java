@@ -1,18 +1,35 @@
 package com.company;
 
+import java.util.function.Function;
+
 public class Main {
 
     public static void main(String[] args) {
         // passing an anonymous object with an interface class is called a Lambda
-        System.out.println( process("Hello, World!", str -> str.toUpperCase()) );
+        System.out.println( process("Hello, World!", String::toUpperCase) );
     }
 
-    private static String process(String str, Processor processor) {
-        return processor.process(str);
-    }
-}
+    // String::toLowerCase is the same as
+    // str -> str.toLowerCase()
 
-//interface with a  single method is called a functional interface, and wherever they are used, lambdas can be too.
-interface Processor {
-    String process(String str);
+    // another example .. when a parameter is needed
+    // String::substring(i) is the same as
+    // str, i -> str.substring(i)
+
+    // another example .. static methods
+    // String::valueOf(number) is the same as
+    // number -> String.valueOf(number)
+
+    // another example .. self initialized objects
+    // String::new
+    // () -> new String()
+
+    // another example .. initializing an object with a parameter
+    // (parameter) -> new String(parameter)
+
+    // someString, otherString:: someString.concat(otherString)
+
+    private static String process(String str, Function<String, String> processor) {
+        return processor.apply(str);
+    }
 }
