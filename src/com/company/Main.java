@@ -3,11 +3,8 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println( process("Hello, World!", new Processor(){
-            public String process(String str) {
-                return str.toUpperCase();
-            }
-        }) );
+        // passing an anonymous object with an interface class is called a Lambda
+        System.out.println( process("Hello, World!", str -> str.toUpperCase()) );
     }
 
     private static String process(String str, Processor processor) {
@@ -15,6 +12,7 @@ public class Main {
     }
 }
 
+//interface with a  single method is called a functional interface, and wherever they are used, lambdas can be too.
 interface Processor {
-    String process (String str);
+    String process(String str);
 }
