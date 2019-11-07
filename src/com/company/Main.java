@@ -3,6 +3,15 @@ package com.company;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+// Method references let us re-use the pre-existing method definitions in place of lambdas.
+// Wherever we can pass a lambda, we can pass a method reference.
+
+
+// Functional interfaces are interfaces that have a single method
+// and to use a lambda, we first need to have a functional interface corresponding to it.
+// Java comes with a lot of built in functional interfaces like Runnable, Function and BiFunction below.
+
+
 public class Main {
 
     public static void main(String[] args) {
