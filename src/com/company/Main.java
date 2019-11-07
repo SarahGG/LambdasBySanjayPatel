@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Main {
@@ -7,6 +8,12 @@ public class Main {
     public static void main(String[] args) {
         // passing an anonymous object with an interface class is called a Lambda
         System.out.println( process("Hello, World!", String::toUpperCase) );
+        System.out.println( process2("Hello, World!", 5, String::substring) );
+    }
+
+    private static String process2(String str, int i,
+                                   BiFunction<String, Integer, String> processor) {
+        return processor.apply(str, i);
     }
 
     // String::toLowerCase is the same as
@@ -29,7 +36,8 @@ public class Main {
 
     // someString, otherString:: someString.concat(otherString)
 
-    private static String process(String str, Function<String, String> processor) {
+    private static String process(String str,
+                                  Function<String, String> processor) {
         return processor.apply(str);
     }
 }
