@@ -22,7 +22,7 @@ public class Main {
         System.out.println( process2("Hello, World!", 5, String::substring) );
 
         String[] names = {"Mr Sanjay", "Ms Trupti", "Dr John"};
-        Arrays.sort(names, Comparator.comparing(name -> name.split(" ")[1])        );
+        Arrays.sort(names, Comparator.comparing(name -> name.split(" ")[1]));
 
         System.out.println(Arrays.toString(names));
     }
